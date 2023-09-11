@@ -1,6 +1,7 @@
 require 'date'
 class Item
   attr_accessor :genre, :author, :label
+
   def initialize(publish_date)
     @id = rand(1..1000)
     @publish_date = publish_date
@@ -13,17 +14,5 @@ class Item
 
   def move_to_archive
     @archived = true if can_be_archived?
-  end
-
-  def genre=(genre)
-    @genre = genre
-  end
-
-  def author=(author)
-    @author = author
-  end
-
-  def label=(label)
-    @label = label
   end
 end
