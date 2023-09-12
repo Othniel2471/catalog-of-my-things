@@ -1,3 +1,5 @@
+require_relative 'item'
+
 class Author
   attr_accessor :first_name, :last_name
   attr_reader :items
@@ -11,5 +13,9 @@ class Author
   def add_item(item)
     @items << item
     item.author = self
+  end
+
+  def full_name
+    "#{@first_name} #{@last_name}"
   end
 end
