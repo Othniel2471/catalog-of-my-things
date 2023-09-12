@@ -1,3 +1,5 @@
+require_relative 'app'
+
 puts 'Welcome to my catalog!'.center(50).upcase
 
 def main
