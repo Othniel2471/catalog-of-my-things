@@ -6,6 +6,7 @@ class Item
     @id = rand(1..1000)
     @publish_date = publish_date
     @archived = false
+    move_to_archive
   end
 
   def can_be_archived?
