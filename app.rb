@@ -16,15 +16,14 @@ class App
 
   def list_labels(index: false)
     puts 'No labels yet' if @labels.empty?
-    @labels.each_with_index do |label, index|
-      print "#{index + 1} - " if index
-      puts "#{label.title}"
+    @labels.each_with_index do |label, idx|
+      print "#{idx + 1} - " if index
+      puts label.title
     end
-    if index
-      puts "0 - Create a label"
-      gets.chomp.to_i
-    end
+    return unless index
 
+    puts '0 - Create a label'
+    gets.chomp.to_i
   end
 
   def add_book
@@ -36,11 +35,11 @@ class App
     cover_state = gets.chomp
     puts 'Choose a label:'
     label_index = list_labels(index: true)
-    if !label_index.zero?
-      label = @labels[label_index - 1]
-    else
-      label = create_label
-    end
+    label = if label_index.zero?
+              create_label
+            else
+              @labels[label_index - 1]
+            end
     book = Book.new(publish_date, publisher, cover_state)
     label.add_item(book)
     @books << book
