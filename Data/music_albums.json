@@ -1,7 +1,12 @@
 [
   {
-    "publish_date": "2022-01-01",
+    "publish_date": "2002-01-09",
     "on_spotify": true,
+    "genre": "Rock"
+  },
+  {
+    "publish_date": "2001-09-09",
+    "on_spotify": false,
     "genre": "Pop"
   }
 ]

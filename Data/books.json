@@ -1,0 +1,38 @@
+[
+  {
+    "publish_date": 2022,
+    "publisher": "a",
+    "cover_state": null,
+    "label": {
+      "title": "read",
+      "color": "pink"
+    }
+  },
+  {
+    "publish_date": 2002,
+    "publisher": "c",
+    "cover_state": null,
+    "label": {
+      "title": "read",
+      "color": "pink"
+    }
+  },
+  {
+    "publish_date": 2007,
+    "publisher": "g",
+    "cover_state": "good",
+    "label": {
+      "title": "read",
+      "color": "pink"
+    }
+  },
+  {
+    "publish_date": 2001,
+    "publisher": "abc",
+    "cover_state": "good",
+    "label": {
+      "title": "finished",
+      "color": "green"
+    }
+  }
+]
