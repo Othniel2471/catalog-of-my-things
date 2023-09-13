@@ -6,6 +6,7 @@ require './genre'
 
 class App
   def initialize
+    Dir.mkdir('Data') unless Dir.exist?('Data')
     @books = []
     @labels = []
     @genres = []
