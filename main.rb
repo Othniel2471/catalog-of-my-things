@@ -2,6 +2,13 @@ require './app'
 
 puts 'Welcome to my catalog!'.center(50).upcase
 
+def run
+  app = App.new
+  main
+  app.read_music_albums
+  app.read_genres
+end
+
 def main
   app = App.new
 
@@ -21,7 +28,7 @@ def main
     puts ''
 
     option = gets.chomp.to_i
-    exit if option.zero?
+    exit(app) if option.zero?
     list(option, app)
 
     break if option.zero?
@@ -69,8 +76,9 @@ def list_add(option, app)
   end
 end
 
-def exit
+def exit(app)
+  app.write_data_music_data
   puts 'Goodbye!'
 end
 
-main
+run
