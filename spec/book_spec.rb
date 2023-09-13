@@ -24,4 +24,17 @@ describe Book do
       expect(book.can_be_archived?).to be_truthy
     end
   end
+
+  describe '#move_to_archive' do
+    it 'should archive the book if it can be archived' do
+      book.move_to_archive
+      expect(book.archived).to be_truthy
+    end
+
+    it 'should not archive the book if it cannot be archived' do
+      book.publish_date = Date.today
+      book.move_to_archive
+      expect(book.archived).to be_falsey
+    end
+  end
 end
