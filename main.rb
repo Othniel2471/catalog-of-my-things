@@ -2,6 +2,12 @@ require_relative 'app'
 
 puts 'Welcome to my catalog!'.center(50).upcase
 
+def run
+  main
+  @app.read_music_albums
+  @app.read_genres
+end
+
 def main
   loop do
     puts ''
@@ -66,6 +72,7 @@ def list_add(option)
 end
 
 def exit
+  @app.write_data_music_data
   puts 'Goodbye!'
 end
 
