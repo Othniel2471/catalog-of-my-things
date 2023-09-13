@@ -1,3 +1,5 @@
+require './app'
+
 puts 'Welcome to my catalog!'.center(50).upcase
 
 def main
@@ -37,7 +39,7 @@ def list_main(option)
   when 1
     puts 'List All Books'
   when 2
-    puts 'List all music albums'
+    @app.music_album_list
   when 3
     puts 'List all games'
   end
@@ -46,7 +48,7 @@ end
 def list_sub(option)
   case option
   when 4
-    puts "List all genres (e.g 'Comedy', 'Thriller')"
+    @app.genre_list
   when 5
     puts "List all labels (e.g. 'Gift', 'New')"
   when 6
@@ -59,7 +61,7 @@ def list_add(option)
   when 7
     puts 'Add a book'
   when 8
-    puts 'Add a music album'
+    @app.add_music_album
   when 9
     puts 'Add a game'
   end
@@ -69,4 +71,5 @@ def exit
   puts 'Goodbye!'
 end
 
+@app = App.new
 main
