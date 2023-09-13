@@ -1,4 +1,5 @@
 require 'json'
+require 'fileutils'
 require_relative 'label'
 require_relative 'book'
 require './music_album'
@@ -6,7 +7,7 @@ require './genre'
 
 class App
   def initialize
-    Dir.mkdir('Data') unless Dir.exist?('Data')
+    FileUtils.mkdir_p('Data')
     @books = []
     @labels = []
     @genres = []
@@ -173,7 +174,6 @@ class App
 
     @music_albums << music_album
     puts 'Music Album added successfully'
-    write_data_music_data
   end
 
   private
