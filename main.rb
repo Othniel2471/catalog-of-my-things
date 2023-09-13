@@ -6,6 +6,8 @@ def run
   main
   @app.read_music_albums
   @app.read_genres
+  @app.read_books
+  @app.read_labels
 end
 
 def main
@@ -73,6 +75,7 @@ end
 
 def exit
   @app.write_data_music_data
+  @app.write_book_data
   puts 'Goodbye!'
 end
 

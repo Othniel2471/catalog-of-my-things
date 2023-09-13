@@ -1,4 +1,5 @@
 require 'json'
+require 'fileutils'
 require_relative 'label'
 require_relative 'book'
 require './music_album'
@@ -6,12 +7,15 @@ require './genre'
 
 class App
   def initialize
+    FileUtils.mkdir_p('Data')
     @books = []
     @labels = []
     @genres = []
     @music_albums = []
     read_music_albums
     read_genres
+    read_books
+    read_labels
   end
 
   def read_music_albums
@@ -32,6 +36,44 @@ class App
     JSON.parse(genres).each do |genre|
       @genres.push(Genre.new(genre['name']))
     end
+  end
+
+  def read_books
+    File.new('Data/books.json', 'w') unless File.exist?('Data/books.json')
+    books = File.read('Data/books.json')
+    return if books.empty?
+
+    JSON.parse(books).each do |book|
+      @books.push(Book.new(book['publish_date'], book['publisher'], book['cover_state'],
+                           Label.new(book['label']['title'], book['label']['color'])))
+    end
+  end
+
+  def read_labels
+    File.new('Data/labels.json', 'w') unless File.exist?('Data/labels.json')
+    labels = File.read('Data/labels.json')
+    return if labels.empty?
+
+    JSON.parse(labels).each do |label|
+      @labels.push(Label.new(label['title'], label['color']))
+    end
+  end
+
+  def write_book_data
+    book_file = []
+    label_file = []
+
+    @books.each do |book|
+      book_file.push({ publish_date: book.publish_date, publisher: book.publisher, cover_state: book.cover_state,
+                       label: { title: book.label.title, color: book.label.color } })
+    end
+
+    @labels.each do |label|
+      label_file.push({ title: label.title, color: label.color })
+    end
+
+    File.write('Data/books.json', JSON.pretty_generate(book_file))
+    File.write('Data/labels.json', JSON.pretty_generate(label_file))
   end
 
   def write_data_music_data
@@ -59,13 +101,15 @@ class App
 
   def list_labels(index: false)
     puts 'No labels yet' if @labels.empty?
+    puts 'Available labels:' unless index || @labels.empty?
     @labels.each_with_index do |label, idx|
       print "#{idx + 1} - " if index
-      puts label.title
+      puts "[#{label.color.capitalize}] #{label.title.capitalize}"
     end
     return unless index
 
     puts '0 - Create a label'
+    puts ''
     gets.chomp.to_i
   end
 
@@ -83,10 +127,10 @@ class App
             else
               @labels[label_index - 1]
             end
-    book = Book.new(publish_date, publisher, cover_state)
+    book = Book.new(publish_date, publisher, cover_state, label)
     label.add_item(book)
     @books << book
-    puts "Book #{book.publisher} added!"
+    puts 'Book added successfully!'
   end
 
   def music_album_list
@@ -130,7 +174,6 @@ class App
 
     @music_albums << music_album
     puts 'Music Album added successfully'
-    write_data_music_data
   end
 
   private
