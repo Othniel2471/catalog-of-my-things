@@ -3,8 +3,6 @@ require './app'
 puts 'Welcome to my catalog!'.center(50).upcase
 
 def main
-  app = App.new
-
   loop do
     puts ''
     puts 'What do you want to do?'
@@ -22,7 +20,7 @@ def main
 
     option = gets.chomp.to_i
     exit if option.zero?
-    list(option, app)
+    list(option)
 
     break if option.zero?
   end
@@ -30,27 +28,27 @@ end
 
 def book_menu; end
 
-def list(option, app)
-  list_main(option, app) if option.positive? && option < 4
-  list_sub(option, app) if option > 3 && option < 7
-  list_add(option, app) if option > 6 && option < 10
+def list(option)
+  list_main(option) if option.positive? && option < 4
+  list_sub(option) if option > 3 && option < 7
+  list_add(option) if option > 6 && option < 10
 end
 
-def list_main(option, app)
+def list_main(option)
   case option
   when 1
     puts 'List All Books'
   when 2
-    app.music_album_list
+    @app.music_album_list
   when 3
     puts 'List all games'
   end
 end
 
-def list_sub(option, app)
+def list_sub(option)
   case option
   when 4
-    app.genre_list
+    @app.genre_list
   when 5
     puts "List all labels (e.g. 'Gift', 'New')"
   when 6
@@ -58,12 +56,12 @@ def list_sub(option, app)
   end
 end
 
-def list_add(option, app)
+def list_add(option)
   case option
   when 7
     puts 'Add a book'
   when 8
-    app.add_music_album
+    @app.add_music_album
   when 9
     puts 'Add a game'
   end
@@ -73,4 +71,5 @@ def exit
   puts 'Goodbye!'
 end
 
+@app = App.new
 main
