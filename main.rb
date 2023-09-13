@@ -37,7 +37,7 @@ def list_main(option)
   when 1
     @app.list_books
   when 2
-    puts 'List all music albums'
+    @app.music_album_list
   when 3
     puts 'List all games'
   end
@@ -46,7 +46,7 @@ end
 def list_sub(option)
   case option
   when 4
-    puts "List all genres (e.g 'Comedy', 'Thriller')"
+    @app.genre_list
   when 5
     @app.list_labels
   when 6
@@ -59,7 +59,7 @@ def list_add(option)
   when 7
     @app.add_book
   when 8
-    puts 'Add a music album'
+    @app.add_music_album
   when 9
     puts 'Add a game'
   end
