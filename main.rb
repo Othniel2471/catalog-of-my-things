@@ -2,6 +2,14 @@ require_relative 'app'
 
 puts 'Welcome to my catalog!'.center(50).upcase
 
+def run
+  main
+  @app.read_music_albums
+  @app.read_genres
+  @app.read_books
+  @app.read_labels
+end
+
 def main
   loop do
     puts ''
@@ -26,8 +34,6 @@ def main
   end
 end
 
-def book_menu; end
-
 def list(option)
   list_main(option) if option.positive? && option < 4
   list_sub(option) if option > 3 && option < 7
@@ -37,9 +43,9 @@ end
 def list_main(option)
   case option
   when 1
-    puts 'List All Books'
+    @app.list_books
   when 2
-    puts 'List all music albums'
+    @app.music_album_list
   when 3
     puts 'List all games'
   end
@@ -48,9 +54,9 @@ end
 def list_sub(option)
   case option
   when 4
-    puts "List all genres (e.g 'Comedy', 'Thriller')"
+    @app.genre_list
   when 5
-    puts "List all labels (e.g. 'Gift', 'New')"
+    @app.list_labels
   when 6
     puts "List all authors (e.g. 'J. K. Rowling', 'Stephen King')"
   end
@@ -59,16 +65,19 @@ end
 def list_add(option)
   case option
   when 7
-    puts 'Add a book'
+    @app.add_book
   when 8
-    puts 'Add a music album'
+    @app.add_music_album
   when 9
     puts 'Add a game'
   end
 end
 
 def exit
+  @app.write_data_music_data
+  @app.write_book_data
   puts 'Goodbye!'
 end
 
+@app = App.new
 main
