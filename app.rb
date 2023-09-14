@@ -1,4 +1,7 @@
 require 'json'
+require 'date'
+require_relative 'game'
+require_relative 'author'
 require 'fileutils'
 require_relative 'label'
 require_relative 'book'
@@ -115,7 +118,7 @@ class App
 
   def add_book
     print 'Publish Date (yyyy-dd-mm): '
-    publish_date = gets.chomp.to_i
+    publish_date = gets.chomp
     print 'Publisher: '
     publisher = gets.chomp
     print 'Cover State: '

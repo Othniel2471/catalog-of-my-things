@@ -1,13 +1,16 @@
 require_relative 'app'
+require_relative 'modules/game_utils'
 
 puts 'Welcome to my catalog!'.center(50).upcase
 
 def run
   main
-  @app.read_music_albums
-  @app.read_genres
-  @app.read_books
-  @app.read_labels
+  @game.read_authors
+  @game.read_game
+  # @app.read_music_albums
+  # @app.read_genres
+  # @app.read_books
+  # @app.read_labels
 end
 
 def main
@@ -47,7 +50,8 @@ def list_main(option)
   when 2
     @app.music_album_list
   when 3
-    puts 'List all games'
+    # puts 'List all games'
+    @game.list_games
   end
 end
 
@@ -58,7 +62,8 @@ def list_sub(option)
   when 5
     @app.list_labels
   when 6
-    puts "List all authors (e.g. 'J. K. Rowling', 'Stephen King')"
+    @game.list_authors
+    # puts "List all authors (e.g. 'J. K. Rowling', 'Stephen King')"
   end
 end
 
@@ -69,15 +74,17 @@ def list_add(option)
   when 8
     @app.add_music_album
   when 9
-    puts 'Add a game'
+    @game.add_game
   end
 end
 
 def exit
   @app.write_data_music_data
   @app.write_book_data
+  @game.write_game_data
   puts 'Goodbye!'
 end
 
+@game = GameUtils.new
 @app = App.new
 main
