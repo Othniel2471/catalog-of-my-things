@@ -3,7 +3,7 @@ require_relative '../book'
 
 describe Label do
   let(:label) { Label.new('Label', 'red') }
-  let(:book) { Book.new(Date.new(2000, 1, 1), 'Publisher', 'Good') }
+  let(:book) { Book.new('2000-01-01', 'Publisher', 'Good') }
 
   describe '#initialize' do
     it 'should create a new label' do
