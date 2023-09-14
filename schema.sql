@@ -1,4 +1,4 @@
--- Create the items table (common properties for Game and MusicAlbum)
+-- Create the items table (common properties for Game, Book and MusicAlbum)
 CREATE TABLE items (
   id SERIAL PRIMARY KEY,
   genre VARCHAR(255),
