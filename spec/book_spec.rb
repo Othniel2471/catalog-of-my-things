@@ -1,7 +1,7 @@
 require_relative '../book'
 
 describe Book do
-  let(:book) { Book.new(Date.new(2000, 1, 1), 'Publisher', 'Good') }
+  let(:book) { Book.new('2010-01-01', 'Publisher', 'Good') }
 
   describe '#initialize' do
     it 'should create a new book' do

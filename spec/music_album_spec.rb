@@ -17,7 +17,7 @@ describe MusicAlbum do
 
   describe '#publish_date' do
     it 'returns the publish_date attribute' do
-      expect(album.publish_date).to eq('2020-01-01')
+      expect(album.publish_date).to eq(Date.new(2020, 1, 1))
     end
   end
 end

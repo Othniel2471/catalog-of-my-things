@@ -12,21 +12,12 @@ describe Game do
 
   describe '#can_be_archived?' do
     it 'returns true if the game was last played over 2 years ago' do
-      puts "Last played at: #{game.last_played_at}"
-      puts "Today's year: #{Date.today.year}"
-      puts "Difference: #{Date.today.year - game.last_played_at.year}"
-
       expect(game.can_be_archived?).to be true
     end
 
     it 'returns false if the game was last played less than 2 years ago' do
       # Simulating a scenario where the game was last played less than 2 years ago
       game.last_played_at = Date.new(2022, 9, 15)
-
-      puts "Last played at: #{game.last_played_at}"
-      puts "Today's year: #{Date.today.year}"
-      puts "Difference: #{Date.today.year - game.last_played_at.year}"
-
       expect(game.can_be_archived?).to be false
     end
   end
