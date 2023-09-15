@@ -1,7 +1,8 @@
 require_relative '../music_album'
 
 describe MusicAlbum do
-  let(:album) { MusicAlbum.new(Date.new(2020 - 0o1 - 0o1), true) }
+  let(:date) { Date.new(2000 - 0o1 - 0o1) }
+  let(:album) { MusicAlbum.new(date, true) }
 
   describe '#initialize' do
     it 'creates a new music album' do
@@ -17,7 +18,18 @@ describe MusicAlbum do
 
   describe '#publish_date' do
     it 'returns the publish_date attribute' do
-      expect(album.publish_date).to eq(Date.new(2020 - 0o1 - 0o1))
+      expect(album.publish_date).to eq(date)
+    end
+  end
+
+  describe '#can_be_archived?' do
+    it 'returns true if the album is older than 10 years' do
+      expect(album.can_be_archived?).to be_truthy
+    end
+
+    it 'returns false if the album is not older than 10 years and the song is on Spotify' do
+      album.publish_date = Date.today
+      expect(album.can_be_archived?).to be_falsey
     end
   end
 end

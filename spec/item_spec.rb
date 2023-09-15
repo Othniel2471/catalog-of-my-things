@@ -25,4 +25,11 @@ describe Item do
       expect(@item.can_be_archived?).to be_falsey
     end
   end
+
+  describe '#move_to_archive' do
+    it 'should move the item to the archive' do
+      @item.move_to_archive
+      expect(@item.archived).to be_truthy
+    end
+  end
 end

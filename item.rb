@@ -14,8 +14,6 @@ class Item
     Date.today.year - publish_date.year > 10
   end
 
-  private
-
   def move_to_archive
     @archived = true if can_be_archived?
   end
