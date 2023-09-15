@@ -1,0 +1,20 @@
+[
+  {
+    "publish_date": "2002-01-09",
+    "publisher": "penguin",
+    "cover_state": "bad",
+    "label": {
+      "title": "hi",
+      "color": "blue"
+    }
+  },
+  {
+    "publish_date": "2023-09-12",
+    "publisher": "none",
+    "cover_state": "good",
+    "label": {
+      "title": "reading",
+      "color": "green"
+    }
+  }
+]
