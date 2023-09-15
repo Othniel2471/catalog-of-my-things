@@ -20,7 +20,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 MyEnumerable <a name="about-project"></a>
+# 📖 Catalog of my Things <a name="about-project"></a>
 
 > **Catalog of my things** This application is designed to keep a record of different types of things you own: books, music albums, movies, and games.
 

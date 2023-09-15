@@ -1,3 +1,17 @@
 [
-
+  {
+    "publish_date": "2009-08-09",
+    "on_spotify": true,
+    "genre": "pop"
+  },
+  {
+    "publish_date": "2022-09-09",
+    "on_spotify": false,
+    "genre": "blues"
+  },
+  {
+    "publish_date": "2003-12-23",
+    "on_spotify": false,
+    "genre": "pop"
+  }
 ]

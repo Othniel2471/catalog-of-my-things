@@ -25,5 +25,14 @@
       "first_name": "n",
       "last_name": "a"
     }
+  },
+  {
+    "publish_date": "2023-09-02",
+    "multiplayer": "y",
+    "last_played_at": "2023-09-11",
+    "author": {
+      "first_name": "Name",
+      "last_name": "Surname"
+    }
   }
 ]

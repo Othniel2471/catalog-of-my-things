@@ -1,3 +1,10 @@
 [
-
+  {
+    "title": "hi",
+    "color": "blue"
+  },
+  {
+    "title": "reading",
+    "color": "green"
+  }
 ]
