@@ -1,7 +1,7 @@
 require_relative '../music_album'
 
 describe MusicAlbum do
-  let(:album) { MusicAlbum.new('2020-01-01', true) }
+  let(:album) { MusicAlbum.new(Date.new(2020 - 0o1 - 0o1), true) }
 
   describe '#initialize' do
     it 'creates a new music album' do
@@ -17,7 +17,7 @@ describe MusicAlbum do
 
   describe '#publish_date' do
     it 'returns the publish_date attribute' do
-      expect(album.publish_date).to eq(Date.new(2020, 1, 1))
+      expect(album.publish_date).to eq(Date.new(2020 - 0o1 - 0o1))
     end
   end
 end

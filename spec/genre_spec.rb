@@ -3,7 +3,7 @@ require_relative '../genre'
 describe Genre do
   before(:each) do
     @genre = Genre.new('soul')
-    @music_album = MusicAlbum.new('2020-01-01', true, @genre)
+    @music_album = MusicAlbum.new(Date.new(2000 - 0o1 - 0o1), true, @genre)
   end
 
   describe '#initialize' do
